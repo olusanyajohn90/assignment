@@ -95,6 +95,8 @@
 
 <script>
 
+import {mapState} from "vuex"
+import axios from 'axios'
 
 export default {
   
@@ -102,6 +104,7 @@ export default {
     
   },
   computed: {
+    ...mapState(["from","to"]),
 
      input: {
       get() {
@@ -119,7 +122,7 @@ export default {
   },
   data(){
     return{
-      cur1:"",
+      cur1:"100",
       timeout:null,
       
     }
@@ -130,12 +133,22 @@ export default {
     },
     addDigit(newDigit){
       this.cur1=this.cur1+String(newDigit)
+      console.log(this.to, this.from)
+      this.convertCurrency(this.to,this.from)
+
     },
     resetValues(){
       this.cur1=0
     },
-    convertCurrency(){
-      console.log('i am converting',)
+  async convertCurrency(to,from){
+      try {
+         let response =await axios.get (`https://data.fixer.io/api/convert?access_key=f9d99f46a849745e606457a09bfde90f&from=${from}&to=${to}&amount=${Number(this.cur1)}`)
+         console.log(response)
+      } 
+      catch (error) {
+        
+        
+      }
     },
   },
 };
