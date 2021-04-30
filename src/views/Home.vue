@@ -16,7 +16,7 @@
 
                 <div class="col-6  btn-group ">
                 <router-link :to="'/currency'" class="w100">
-                    <input class="text-right form-control-lg boxtop codes" id="code" v-model="cur1" v-on:change="convert" v-on:keyup="convert" placeholder="00.00 " >
+                    <input class="text-right form-control-lg boxtop codes" id="code" v-model="cur1"  placeholder="00.00 " >
                           </router-link>
             
                 </div>
@@ -40,7 +40,7 @@
 
                 <div class="col-6  btn-group  "   id="converted">
                 <router-link :to="'/currency'" class="w100">
-                    <input class="text-right form-control-lg  box "  id="code1" v-model="cur2"  placeholder="00.00 " >
+                    <input class="text-right form-control-lg  box "  id="code1"  placeholder="00.00 " >
                      </router-link>
                 </div>
 
@@ -51,7 +51,7 @@
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys">
-                            <button type="button " class="btn btn-outline-secondary mybutton " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '1'; ">1</button>
+                            <button type="button " class="btn btn-outline-secondary mybutton " onclick="addDigit(1); test()">1</button>
                             <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '2'; ">2</button>
                             <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '3'; ">3</button>
                         </div>
@@ -93,7 +93,35 @@
     </div>
 </template>
 
+<script>
 
 
+export default {
+  
+  components: {
+    
+  },
+  computed: {
+  
+  },
+  data(){
+    return{
+      cur1:""
+      
+    }
+  },
+  methods: {
+    test(){
+      console.log('cur1', this.cur1)
+    },
+    addDigit(newDigit){
+      this.cur1=this.cur1+String(newDigit)
+    }
+  },
+};
+</script>
 
 <style scoped src="../assets/css/style.css">
+
+
+
