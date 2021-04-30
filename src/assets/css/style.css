@@ -1,0 +1,77 @@
+.topbody {
+    background-color: rgb(12, 159, 202);
+    color: white;
+}
+
+.abspos {}
+
+.w100 {
+    width: 100%;
+    max-width: 100%;
+}
+
+.keypad {
+    background-color: rgb(84, 206, 198);
+    align-content: center;
+    padding-top: 10px;
+}
+
+.keypadcol {
+    align-content: center;
+    justify-content: end;
+    align-items: center;
+}
+
+.keys {
+    margin-left: 50%;
+}
+
+.box {
+    background-color: rgb(84, 206, 198);
+    border-width: 0px;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.boxtop {
+    background-color: rgb(12, 159, 202);
+    border-width: 0px;
+    border: none;
+    color: white;
+    width: 100%;
+}
+
+.bluegrid {
+    padding-top: 50px;
+    background-color: rgb(12, 159, 202);
+    color: white;
+}
+
+.greengrid {
+    padding-top: 50px;
+    background-color: rgb(84, 206, 198);
+    color: white;
+}
+
+.mybutton {
+    opacity: 80%;
+}
+
+input::placeholder {
+    color: white;
+}
+
+input {
+    text-align: right;
+}
+
+.nopadding {
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.nomargin {
+    margin-left: 0%;
+    margin-right: 0%;
+}

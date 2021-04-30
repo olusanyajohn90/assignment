@@ -1,0 +1,89 @@
+.topbody {
+    background-color: rgb(12, 159, 202);
+    color: white;
+}
+
+.w100 {
+    width: 100%;
+    max-width: 100%;
+}
+
+.bluegrid {
+    padding-top: 50px;
+    background-color: rgb(12, 159, 202);
+    color: white;
+}
+
+.boxtop {
+    background-color: rgb(12, 159, 202);
+    border-width: 0px;
+    width: 100%;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.list {
+    color: white;
+    width: 100%;
+}
+
+input {
+    text-align: right;
+}
+
+.overlay {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.747);
+    display: block;
+}
+
+.nopadding {
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.nomargin {
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.butstyle {
+    float: right;
+}
+
+button {
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 30px;
+    height: 30px;
+    border: 2px solid blue;
+    color: blue;
+    position: relative;
+}
+
+button::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: blue;
+    width: 2px;
+    left: 12px;
+    top: 5px;
+    bottom: 5px;
+    transform: rotate(45deg);
+}
+
+button::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: blue;
+    height: 2px;
+    top: 12px;
+    left: 5px;
+    right: 5px;
+    transform: rotate(45deg);
+}
