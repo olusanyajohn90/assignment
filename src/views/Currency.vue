@@ -24,7 +24,7 @@
 
      
 
-        <div class="row overlay" id="overlay dollar" @click="changeTo('USD')" style=" padding-top: 30px; ">
+        <div class="row overlay" id="overlay dollar" @click="changeTo('usd')" style=" padding-top: 30px; ">
 
 
             <div class="row list ">
@@ -42,7 +42,7 @@
 
        
 
-        <div class="row "  @click="changeTo('GBP')" style="padding-top: 30px; " id="pounds">
+        <div class="row "  @click="changeTo('gbp')" style="padding-top: 30px; " id="pounds">
 
 
             <div class="row list ">
@@ -57,7 +57,7 @@
 
        
 
-        <div class="row "  @click="changeTo('EUR')" style="padding-top: 30px; " id="euro">
+        <div class="row "  @click="changeTo('eur')" style="padding-top: 30px; " id="euro">
 
 
             <div class="row list ">
@@ -71,7 +71,7 @@
         </div>
 
       
-        <div class="row " @click="changeTo('CNY')" style="padding-top: 30px; " id="yuan">
+        <div class="row " @click="changeTo('cny')" style="padding-top: 30px; " id="yuan">
 
 
             <div class="row list ">
@@ -86,7 +86,7 @@
 
        
 
-        <div class="row " @click="changeTo('INR')" style="padding-top: 30px; " id="rupee">
+        <div class="row " @click="changeTo('inr')" style="padding-top: 30px; " id="rupee">
 
 
             <div class="row list ">

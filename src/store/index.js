@@ -3,9 +3,10 @@ import Vuex from "vuex";
 
 export const state = () => ({
     //State
-    from: "USD",
-    to: ""
-
+    from: "usd",
+    to: "eur",
+    fromCurrencySymbol = "",
+    toCurrencySymbol = "",
 
 });
 

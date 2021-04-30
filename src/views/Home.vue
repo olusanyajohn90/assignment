@@ -32,7 +32,7 @@
                     <div class="row ">
 
                         <div class="col-12 ">$</div>
-                        <div class="col-12 ">US Dollar</div>
+                        <div class="col-12 ">GBP</div>
                     
                     </div>
                 </div>
@@ -40,7 +40,7 @@
 
                 <div class="col-6  btn-group  "   id="converted">
                 <router-link :to="'/currency'" class="w100">
-                    <input class="text-right form-control-lg  box "  id="code1"  placeholder="00.00 " >
+                    <input class="text-right form-control-lg  box "  id="code1" v-model="cur2"  placeholder="00.00 " >
                      </router-link>
                 </div>
 
@@ -123,6 +123,7 @@ export default {
   data(){
     return{
       cur1:"100",
+      cur2:"",
       timeout:null,
       
     }
@@ -142,8 +143,9 @@ export default {
     },
   async convertCurrency(to,from){
       try {
-         let response =await axios.get (`https://data.fixer.io/api/convert?access_key=f9d99f46a849745e606457a09bfde90f&from=${from}&to=${to}&amount=${Number(this.cur1)}`)
-         console.log(response)
+         let response =await axios.get (`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}/${to}.json`)
+         console.log("response", response)
+         this.cur2=this.cur1*response.data[to]
       } 
       catch (error) {
         
