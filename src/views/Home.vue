@@ -29,8 +29,8 @@
                     </div>
                 </div>
 
-                <div class="col-6  btn-group  ">
-                    <input class="text-right form-control-lg  box " id="code1" v-model="cur2"  placeholder="00.00 " >
+                <div class="col-6  btn-group  " id="converted">
+                    <input class="text-right form-control-lg  box " id="code1" v-model="cur2"  placeholder="00.00 " >{{ info }}
                 </div>
 
             </div>
@@ -81,6 +81,7 @@
 
     </div>
 </template>
+
 
 
 

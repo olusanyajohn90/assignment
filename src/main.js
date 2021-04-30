@@ -4,6 +4,7 @@ import router from './router'
 import './assets/css/bootstrap.css'
 import './assets/js/bootstrap.js'
 import './assets/js/myjs.js'
+import axios from 'axios'
 
 import './assets/js/popper.min.js'
 import './assets/js/jquery-3.2.1.slim.min.js'
