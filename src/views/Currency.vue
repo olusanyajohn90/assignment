@@ -24,7 +24,7 @@
 
      
 
-        <div class="row overlay" id="overlay " onclick="myFunction() " style=" padding-top: 30px; ">
+        <div class="row overlay" id="overlay dollar" onclick="myFunction() " style=" padding-top: 30px; ">
 
 
             <div class="row list ">
@@ -42,7 +42,7 @@
 
        
 
-        <div class="row " style="padding-top: 30px; ">
+        <div class="row " style="padding-top: 30px; " id="pounds">
 
 
             <div class="row list ">
@@ -57,7 +57,7 @@
 
        
 
-        <div class="row " style="padding-top: 30px; ">
+        <div class="row " style="padding-top: 30px; " id="euro">
 
 
             <div class="row list ">
@@ -71,7 +71,7 @@
         </div>
 
       
-        <div class="row " style="padding-top: 30px; ">
+        <div class="row " style="padding-top: 30px; " id="yuan">
 
 
             <div class="row list ">
@@ -86,7 +86,7 @@
 
        
 
-        <div class="row " style="padding-top: 30px; ">
+        <div class="row " style="padding-top: 30px; " id="rupee">
 
 
             <div class="row list ">

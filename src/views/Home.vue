@@ -1,5 +1,9 @@
+
 <template>
+
+
    <div class="col-12 home">
+  
         <div class="container w100 nopadding">
             <div class="row bluegrid ">
 
@@ -10,27 +14,34 @@
                     </div>
                 </div>
 
-                <div class="col-6  btn-group  ">
+                <div class="col-6  btn-group ">
+                <router-link :to="'/currency'" class="w100">
                     <input class="text-right form-control-lg boxtop codes" id="code" v-model="cur1" v-on:change="convert" v-on:keyup="convert" placeholder="00.00 " >
-                          
+                          </router-link>
             
                 </div>
-
+ 
             </div>
 
         </div>
+       
         <div class="container w100 nopadding">
-            <div class="row greengrid ">
+            <div class="row greengrid " >
 
                 <div class="col-6 ">
                     <div class="row ">
+
                         <div class="col-12 ">$</div>
                         <div class="col-12 ">US Dollar</div>
+                    
                     </div>
                 </div>
+                
 
-                <div class="col-6  btn-group  " id="converted">
-                    <input class="text-right form-control-lg  box " id="code1" v-model="cur2"  placeholder="00.00 " >{{ info }}
+                <div class="col-6  btn-group  "   id="converted">
+                <router-link :to="'/currency'" class="w100">
+                    <input class="text-right form-control-lg  box "  id="code1" v-model="cur2"  placeholder="00.00 " >
+                     </router-link>
                 </div>
 
             </div>
