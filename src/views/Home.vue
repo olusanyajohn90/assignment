@@ -9,8 +9,8 @@
 
                 <div class="col-6 ">
                     <div class="row ">
-                        <div class="col-12 ">$</div>
-                        <div class="col-12 ">US Dollar</div>
+                        <div class="col-12 ">{{ from.symbol }}</div>
+                        <div class="col-12 ">{{ from.name }}</div>
                     </div>
                 </div>
 
@@ -31,8 +31,8 @@
                 <div class="col-6 ">
                     <div class="row ">
 
-                        <div class="col-12 ">$</div>
-                        <div class="col-12 ">GBP</div>
+                        <div class="col-12 ">{{ to.symbol }}</div>
+                        <div class="col-12 ">{{ to.name }}</div>
                     
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <div class="btn-group keys">
                             <button type="button " class="btn btn-outline-secondary py-3 " @click="resetValues();">X</button>
                             <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(0);">0</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code'); ">&uarr;&darr;</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="swap">&uarr;&darr;</button>
                         </div>
                     </div>
 
@@ -95,8 +95,10 @@
 
 <script>
 
-import {mapState} from "vuex"
+import {mapState,mapActions} from "vuex"
 import axios from 'axios'
+
+
 
 export default {
   
@@ -104,7 +106,7 @@ export default {
     
   },
   computed: {
-    ...mapState(["from","to"]),
+    ...mapState(["from","to",]),
 
      input: {
       get() {
@@ -129,13 +131,21 @@ export default {
     }
   },
   methods: {
-    test(){
-      console.log('cur1', this.cur1)
+    ...mapActions(["changeTo","changeFrom"]),
+   swap(){
+    
+     this.changeTo({...this.from})
+     this.changeFrom({...this.to})
+
+   },
+    addDigitAndConvertCurrency(newDigit){
+      this.addDigit(newDigit)
+      this.convertCurrency(this.to.abbr,this.from.abbr)
     },
     addDigit(newDigit){
       this.cur1=this.cur1+String(newDigit)
       console.log(this.to, this.from)
-      this.convertCurrency(this.to,this.from)
+      
 
     },
     resetValues(){

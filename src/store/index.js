@@ -3,35 +3,43 @@ import Vuex from "vuex";
 
 export const state = () => ({
     //State
-    from: "usd",
-    to: "eur",
-    fromCurrencySymbol = "",
-    toCurrencySymbol = "",
+    from: {
+        symbol: "$",
+        name: "US DOLLAR",
+        abbr: "usd"
+
+    },
+
+    to: {
+        symbol: "£",
+        name: "British Pound",
+        abbr: "gbp"
+
+    },
+
 
 });
 
 export const actions = {
-    changeTo({ commit }, currency) {
-        commit("changeTo")
+    changeCurrency({ commit }, [toOrFrom, currency]) {
+        commit("changeCurrency", [toOrFrom, currency])
     },
-    changeFrom({
-        commit
-    }, currency) {
-        commit("changeFrom")
-    }
+
 };
 
 export const mutations = {
-    changeTo(
-        state,
-        currency) {
-        state.to = currency
+    changeCurrency(
+
+        state, [toOrFrom, currency]) {
+        if (toOrFrom == "to") {
+            state.to = currency
+        } else {
+            state.from = currency
+        }
+
     },
-    changeFrom(
-        state,
-        currency) {
-        state.from = currency
-    }
+
+
 };
 Vue.use(Vuex);
 

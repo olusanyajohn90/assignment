@@ -2,7 +2,7 @@
   <div class="col-12 topbody about ">
 
 
-        <div class="row" style="float: right;"><button></button></div>
+        <div class="row" style="float: right;"><router-link to="/" class="w100"><button></button> </router-link></div>
 
         <div class="container w100 nopadding nomargin ">
             <div class="row bluegrid ">
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="col-6  btn-group  ">
-                    <input class="text-right form-control-lg  boxtop " id="code " placeholder="00.00 " v-model="cur1" >
+                    <input class="text-right form-control-lg  boxtop " id="code " placeholder="00.00 " >
                 </div>
 
             </div>
@@ -24,7 +24,11 @@
 
      
 
-        <div class="row overlay" id="overlay dollar" @click="changeTo('usd')" style=" padding-top: 30px; ">
+        <div class="row overlay" id="overlay dollar" @click="changeTo({
+        symbol:'$',
+        name:'US DOLLAR',
+        abbr:'usd',
+    })" style=" padding-top: 30px; ">
 
 
             <div class="row list ">
@@ -42,11 +46,15 @@
 
        
 
-        <div class="row "  @click="changeTo('gbp')" style="padding-top: 30px; " id="pounds">
+        <div class="row "  @click="changeTo({
+        symbol:'£',
+        name:'BRITISH POUND',
+        abbr:'gbp',
+    })" style="padding-top: 30px; " id="pounds">
 
 
             <div class="row list ">
-                <div class="col-12 ">$ British Pound<span style="float: right;">&#10003;</span> </div>
+                <div class="col-12 ">£ British Pound<span style="float: right;">&#10003;</span> </div>
 
             </div>
 
@@ -57,11 +65,15 @@
 
        
 
-        <div class="row "  @click="changeTo('eur')" style="padding-top: 30px; " id="euro">
+        <div class="row "  @click="changeTo({
+        symbol:'€',
+        name:'EURO',
+        abbr:'eur',
+    })" style="padding-top: 30px; " id="euro">
 
 
             <div class="row list ">
-                <div class="col-12 ">$ Euro <span style="float: right;">&#10003;</span>
+                <div class="col-12 ">€ Euro <span style="float: right;">&#10003;</span>
                 </div>
             </div>
 
@@ -71,11 +83,15 @@
         </div>
 
       
-        <div class="row " @click="changeTo('cny')" style="padding-top: 30px; " id="yuan">
+        <div class="row " @click="changeTo({
+        symbol:'¥',
+        name:'CHINESE YUAN',
+        abbr:'cny',
+    })" style="padding-top: 30px; " id="yuan">
 
 
             <div class="row list ">
-                <div class="col-12 ">$ Chinese Yuan
+                <div class="col-12 ">¥ Chinese Yuan
                     <span style="float: right;">&#10003;</span></div>
             </div>
 
@@ -86,11 +102,15 @@
 
        
 
-        <div class="row " @click="changeTo('inr')" style="padding-top: 30px; " id="rupee">
+        <div class="row " @click="changeTo({
+        symbol:'₹',
+        name:'INDIAN RUPEE',
+        abbr:'inr',
+    })" style="padding-top: 30px; " id="rupee">
 
 
             <div class="row list ">
-                <div class="col-12 ">$ Indian Rupee
+                <div class="col-12 ">₹ Indian Rupee
                     <span style="float: right;">&#10003;</span></div>
             </div>
 
@@ -106,50 +126,9 @@
 import {mapActions} from "vuex"
 
 export default {
-  
-  components: {
-    
-  },
-  computed: {
-    ...mapState(["from","to"]),
-
-     input: {
-      get() {
-        return this.cur1;
-      },
-      set(val) {
-     //   if (this.timeout) clearTimeout(this.timeout);
-      //  this.timeout = setTimeout(() => {
-          this.cur1 = val;
-          this.convertCurrency();
-    //    }, 320);
-      }
-    },
-  
-  },
-  data(){
-    return{
-      cur1:"",
-      timeout:null,
-      
-    }
-  },
   methods: {
-    ...mapActions(["changeTo"]),
-    
-    test(){
-      console.log('cur1', this.cur1)
-    },
-    addDigit(newDigit){
-      this.cur1=this.cur1+String(newDigit)
-      console.log(this.to, this.from)
-    },
-    resetValues(){
-      this.cur1=0
-    },
-    convertCurrency(){
-      console.log('i am converting',)
-    },
+    ...mapActions(["changeCurrency"]),
+  
   },
 };
 </script>
