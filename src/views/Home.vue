@@ -16,7 +16,7 @@
 
                 <div class="col-6  btn-group ">
                 <router-link :to="'/currency'" class="w100">
-                    <input class="text-right form-control-lg boxtop codes" id="code" v-model="cur1"  placeholder="00.00 " >
+                    <input class="text-right form-control-lg boxtop codes" id="code" v-model="input"   >
                           </router-link>
             
                 </div>
@@ -51,9 +51,9 @@
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys">
-                            <button type="button " class="btn btn-outline-secondary mybutton " onclick="addDigit(1); test()">1</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '2'; ">2</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '3'; ">3</button>
+                          <button type="button " class="btn btn-outline-secondary mybutton " @click="addDigit(1);">1</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(2);">2</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(3);">3</button>
                         </div>
 
 
@@ -61,26 +61,26 @@
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys ">
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '4'; ">4</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '5'; ">5</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '6'; ">6</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(4);">4</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(5);">5</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(6);">6</button>
                         </div>
                     </div>
 
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys ">
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '7'; ">7</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '8'; ">8</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '9'; ">9</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(7);">7</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(8);">8</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(9);">9</button>
                         </div>
                     </div>
 
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys">
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById('code').value.slice(0, -1);">X</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code').value=document.getElementById( 'code').value + '0'; ">0</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="resetValues();">X</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigit(0);">0</button>
                             <button type="button " class="btn btn-outline-secondary py-3 " onclick="document.getElementById( 'code'); ">&uarr;&darr;</button>
                         </div>
                     </div>
@@ -102,11 +102,25 @@ export default {
     
   },
   computed: {
+
+     input: {
+      get() {
+        return this.cur1;
+      },
+      set(val) {
+     //   if (this.timeout) clearTimeout(this.timeout);
+      //  this.timeout = setTimeout(() => {
+          this.cur1 = val;
+          this.convertCurrency();
+    //    }, 320);
+      }
+    },
   
   },
   data(){
     return{
-      cur1:""
+      cur1:"",
+      timeout:null,
       
     }
   },
@@ -116,10 +130,19 @@ export default {
     },
     addDigit(newDigit){
       this.cur1=this.cur1+String(newDigit)
-    }
+    },
+    resetValues(){
+      this.cur1=0
+    },
+    convertCurrency(){
+      console.log('i am converting',)
+    },
   },
 };
 </script>
+
+
+
 
 <style scoped src="../assets/css/style.css">
 
