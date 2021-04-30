@@ -9,13 +9,13 @@
 
                 <div class="col-6 ">
                     <div class="row ">
-                        <div class="col-12 ">$</div>
-                        <div class="col-12 ">US Dollar</div>
+                        <div class="col-12 ">{{$route.query.change=='from'? from.symbol:to.symbol }}</div>
+                        <div class="col-12 ">{{ $route.query.change=='from'? from.name:to.name  }}</div>
                     </div>
                 </div>
 
-                <div class="col-6  btn-group  ">
-                    <input class="text-right form-control-lg  boxtop " id="code " placeholder="00.00 " >
+                <div class="col-6  btn-group  " v-if="$route.query.change=='from' " >
+                    <input class="text-right form-control-lg  boxtop " id="code " v-model="currentValue" placeholder="00.00 " >
                 </div>
 
             </div>
@@ -24,11 +24,11 @@
 
      
 
-        <div class="row overlay" id="overlay dollar" @click="changeTo({
+        <div class="row overlay" id="overlay dollar" @click="changeCurrency([$route.query.change,{
         symbol:'$',
         name:'US DOLLAR',
         abbr:'usd',
-    })" style=" padding-top: 30px; ">
+    }])" style=" padding-top: 30px; ">
 
 
             <div class="row list ">
@@ -46,11 +46,11 @@
 
        
 
-        <div class="row "  @click="changeTo({
+        <div class="row "  @click="changeCurrency([$route.query.change,{
         symbol:'£',
         name:'BRITISH POUND',
         abbr:'gbp',
-    })" style="padding-top: 30px; " id="pounds">
+    }])" style="padding-top: 30px; " id="pounds">
 
 
             <div class="row list ">
@@ -65,11 +65,11 @@
 
        
 
-        <div class="row "  @click="changeTo({
+        <div class="row "  @click="changeCurrency([$route.query.change,{
         symbol:'€',
         name:'EURO',
         abbr:'eur',
-    })" style="padding-top: 30px; " id="euro">
+    }])" style="padding-top: 30px; " id="euro">
 
 
             <div class="row list ">
@@ -83,11 +83,11 @@
         </div>
 
       
-        <div class="row " @click="changeTo({
+        <div class="row " @click="changeCurrency([$route.query.change,{
         symbol:'¥',
         name:'CHINESE YUAN',
         abbr:'cny',
-    })" style="padding-top: 30px; " id="yuan">
+    }])" style="padding-top: 30px; " id="yuan">
 
 
             <div class="row list ">
@@ -102,11 +102,11 @@
 
        
 
-        <div class="row " @click="changeTo({
+        <div class="row " @click="changeCurrency([$route.query.change,{
         symbol:'₹',
         name:'INDIAN RUPEE',
         abbr:'inr',
-    })" style="padding-top: 30px; " id="rupee">
+    }])" style="padding-top: 30px; " id="rupee">
 
 
             <div class="row list ">
@@ -123,9 +123,13 @@
 
 <script>
 
-import {mapActions} from "vuex"
+import {mapActions, mapState} from "vuex"
 
 export default {
+
+  computed:{
+    ...mapState(["currentValue","from","to"])
+  },
   methods: {
     ...mapActions(["changeCurrency"]),
   

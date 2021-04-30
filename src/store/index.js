@@ -16,7 +16,7 @@ export const state = () => ({
         abbr: "gbp"
 
     },
-
+    currentValue: ""
 
 });
 
@@ -24,13 +24,17 @@ export const actions = {
     changeCurrency({ commit }, [toOrFrom, currency]) {
         commit("changeCurrency", [toOrFrom, currency])
     },
+    changeCurrentValue({ commit }, newValue) {
+        commit("changeCurrentValue", newValue)
 
+    },
 };
 
 export const mutations = {
     changeCurrency(
 
         state, [toOrFrom, currency]) {
+
         if (toOrFrom == "to") {
             state.to = currency
         } else {
@@ -39,6 +43,9 @@ export const mutations = {
 
     },
 
+    changeCurrentValue(state, newValue) {
+        state.currentValue = newValue
+    }
 
 };
 Vue.use(Vuex);
