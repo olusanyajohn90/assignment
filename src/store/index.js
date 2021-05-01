@@ -16,7 +16,8 @@ export const state = () => ({
         abbr: "gbp"
 
     },
-    currentValue: ""
+    currentValue: "",
+    cur2: ""
 
 });
 
@@ -45,7 +46,8 @@ export const mutations = {
 
     changeCurrentValue(state, newValue) {
         state.currentValue = newValue
-    }
+    },
+
 
 };
 Vue.use(Vuex);

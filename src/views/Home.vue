@@ -140,9 +140,9 @@ export default {
       this.changeCurrentValue("")
       
     },
-    toTwoDecimalPlaces(){
-      this.cur1=this.cur1*0.001
-    },
+    // toTwoDecimalPlaces(){
+    //   this.cur1=this.cur1*0.001
+    // },
   async convertCurrency(to,from){
     
       try {

@@ -12,11 +12,12 @@
                     <div class="row ">
                         <div class="col-12 ">{{$route.query.change=='from'? from.symbol:to.symbol }}</div>
                         <div class="col-12 ">{{ $route.query.change=='from'? from.name:to.name  }}</div>
+                        
                     </div>
                 </div>
 
                 <div class="col-6  btn-group  " v-if="$route.query.change=='from' " >
-                    <input class="text-right form-control-lg  boxtop " id="code " v-model="currentValue" placeholder="00.00 " >
+                    <input  class="text-right form-control-lg  boxtop " id="code " v-model="currentValue" placeholder="00.00 " >
                 </div>
 
             </div>
