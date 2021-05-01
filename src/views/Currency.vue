@@ -2,7 +2,8 @@
   <div class="col-12 topbody about ">
 
 
-        <div class="row" style="float: right;"><router-link to="/" class="w100"><button></button> </router-link></div>
+        <div class="row" style="float: right;">
+        <router-link to="/" class="w100"><button></button> </router-link></div>
 
         <div class="container w100 nopadding nomargin ">
             <div class="row bluegrid ">

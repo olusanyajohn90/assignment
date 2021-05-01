@@ -16,7 +16,7 @@
 
                 <div class="col-6  btn-group ">
                 <router-link :to="'/currency?change=from'" class="w100">
-                    <input class="text-right form-control-lg boxtop codes" id="code" v-model="currentValue"   >
+                    <input class="text-right form-control-lg boxtop codes" id="code" placeholder="0.00" v-model="currentValue"   >
                           </router-link>
             
                 </div>
@@ -52,8 +52,8 @@
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys">
                           <button type="button " class="btn btn-outline-secondary mybutton " @click="addDigitAndConvertCurrency(1);">1</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(2);">2</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(3);">3</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton " @click="addDigitAndConvertCurrency(2);">2</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(3);">3</button>
                         </div>
 
 
@@ -61,27 +61,27 @@
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys ">
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(4);">4</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(5);">5</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(6);">6</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(4);">4</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(5);">5</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(6);">6</button>
                         </div>
                     </div>
 
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys ">
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(7);">7</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(8);">8</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(9);">9</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(7);">7</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(8);">8</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(9);">9</button>
                         </div>
                     </div>
 
 
                     <div class="col-12 keypadcol ">
                         <div class="btn-group keys">
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="resetValues();">X</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="addDigitAndConvertCurrency(0);">0</button>
-                            <button type="button " class="btn btn-outline-secondary py-3 " @click="swap">&uarr;&darr;</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="resetValues();">X</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="addDigitAndConvertCurrency(0);">0</button>
+                            <button type="button " class="btn btn-outline-secondary py-3 mybutton" @click="swap">&uarr;&darr;</button>
                         </div>
                     </div>
 
